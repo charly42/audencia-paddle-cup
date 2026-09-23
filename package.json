@@ -1,0 +1,48 @@
+{
+  "name": "audencia-padel-cup",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Audencia Padel Cup — plateforme événementielle (STAFF vs STUDENTS)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "seed": "tsx --env-file=.env.local scripts/seed.ts",
+    "seed:clear": "tsx --env-file=.env.local scripts/seed.ts --clear",
+    "create-admin": "tsx --env-file=.env.local scripts/create-admin.ts",
+    "check:i18n": "node scripts/check-i18n.mjs"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.50.0",
+    "canvas-confetti": "^1.9.3",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.0.0",
+    "jsqr": "^1.4.0",
+    "lucide-react": "^0.460.0",
+    "next": "^16.0.0",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.54.0",
+    "resend": "^4.0.0",
+    "server-only": "^0.0.1",
+    "tailwind-merge": "^3.0.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.9"
+  }
+}

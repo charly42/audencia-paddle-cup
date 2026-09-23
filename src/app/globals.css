@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  /* ───────────────────────────────────────────────────────────────────────
+     CHARTE — déclinaison événementielle de la charte Audencia.
+     ⚠️ Valeurs APPROCHÉES, à remplacer par les codes officiels (voir
+     docs/CHARTE.md). Ces codes doivent rester identiques à src/lib/brand.ts,
+     utilisé par les emails, les cartes sociales et les icônes PWA.
+     ─────────────────────────────────────────────────────────────────────── */
+  --color-blue: #0E2A6B;      /* bleu institutionnel Audencia */
+  --color-blue-deep: #081A44; /* bleu profond : dégradés, survols */
+  --color-blue-soft: #E3E9F7; /* fonds de rappel, badges informatifs */
+  --color-lime: #D9F24B;      /* ACCENT ÉVÉNEMENT (hors charte école) : direct, scores, CTA */
+  --color-paper: #F5F4F0;     /* fond de page */
+  --color-ink: #14161B;       /* texte et aplats sombres */
+  --color-mist: #E6E7EB;
+  --color-slate: #545967;
+  --color-danger: #C22B2B;
+  --color-ok: #1B7F3B;
+  --color-warn: #B45309;
+
+  --font-display: var(--font-display-face), "Arial Narrow", Impact, sans-serif;
+  --font-sans: var(--font-body-face), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --animate-live: live-pulse 1.6s ease-in-out infinite;
+  @keyframes live-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
+  --animate-ticker: ticker 40s linear infinite;
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+}
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+
+/* Typographie display : titres XXL, chiffres avec vraie présence */
+.display { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; line-height: .86; letter-spacing: -.01em; }
+.display-md { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; line-height: .95; }
+.num { font-family: var(--font-display); font-weight: 900; font-variant-numeric: tabular-nums; line-height: .85; }
+.outline-text { -webkit-text-stroke: 2px currentColor; color: transparent; }
+@media (min-width: 768px) { .outline-text { -webkit-text-stroke: 3px currentColor; } }
+
+/* Focus visible AA — lime sur fond sombre, bleu sur fond clair */
+:focus-visible { outline: 3px solid var(--color-blue); outline-offset: 3px; border-radius: 4px; }
+.on-dark :focus-visible { outline-color: var(--color-lime); }
+
+/* Lignes de terrain de padel (décor du hero) */
+.court-lines {
+  background-image:
+    linear-gradient(rgba(255,255,255,.14) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255,255,255,.14) 2px, transparent 2px);
+  background-size: 100% 25%, 25% 100%;
+}
+.net-line { background: repeating-linear-gradient(90deg, var(--color-lime) 0 10px, transparent 10px 16px); height: 3px; }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+/* Safe areas (PWA / iOS) */
+.pb-safe { padding-bottom: max(env(safe-area-inset-bottom), .5rem); }
